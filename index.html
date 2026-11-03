@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Beau Hudak</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Beau Hudak, Creative Director in games. Co-founder of Snack Creative, formerly Blizzard, Telltale, and Activision.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800;900&family=Libre+Franklin:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: the career as an edit timeline. A sequence-style hero, a proportional V1/V2 timeline, then each role as a clip in the inspector. */
+:root{
+  --bg:#111318; --panel:#191c23; --line:#2a2e39; --fg:#e9eaef; --muted:#959bab;
+  --accent:#4da3ff;              /* playhead blue */
+  --c-act:#e2b84d; --c-tt:#e57aa0; --c-bz:#4fc1b0; --c-snk:#9d8cf2;
+  --clip-ink:#0d0f14;
+  --display:"Big Shoulders Display", "Arial Narrow", Impact, sans-serif;
+  --body:"Libre Franklin", "Helvetica Neue", Arial, sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, Menlo, monospace;
+  color-scheme:dark;
+}
+@media (prefers-color-scheme: light){
+  :root:not([data-theme="dark"]){
+    --bg:#f2f3f6; --panel:#ffffff; --line:#d8dbe3; --fg:#14161c; --muted:#596072;
+    --accent:#1f6fd6; --c-act:#a87c0e; --c-tt:#bf4277; --c-bz:#1c8a7b; --c-snk:#6a55d4;
+    --clip-ink:#ffffff; color-scheme:light;
+  }
+}
+:root[data-theme="light"]{
+  --bg:#f2f3f6; --panel:#ffffff; --line:#d8dbe3; --fg:#14161c; --muted:#596072;
+  --accent:#1f6fd6; --c-act:#a87c0e; --c-tt:#bf4277; --c-bz:#1c8a7b; --c-snk:#6a55d4;
+  --clip-ink:#ffffff; color-scheme:light;
+}
+
+*{box-sizing:border-box}
+body{margin:0}
+img{max-width:100%}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+.wrap{max-width:1120px;margin:0 auto;padding-left:max(20px, env(safe-area-inset-left,0px));padding-right:max(20px, env(safe-area-inset-right,0px))}
+.mono{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:.95}
+
+/* top bar */
+.bar{border-bottom:1px solid var(--line)}
+.bar .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-block:14px;flex-wrap:wrap}
+.bar nav{display:flex;gap:20px;flex-wrap:wrap}
+.bar nav a{text-decoration:none}
+.bar nav a:hover{color:var(--fg)}
+.rec{display:inline-flex;align-items:center;gap:8px}
+.rec i{width:8px;height:8px;border-radius:50%;background:var(--accent);display:inline-block}
+
+/* hero */
+.hero .wrap{padding-block:72px 48px;display:grid;gap:28px}
+.hero h1{font-size:clamp(64px,13vw,168px);font-weight:900;letter-spacing:-.01em;text-transform:uppercase}
+.hero h1 span{display:block;color:var(--muted);font-weight:600;font-size:.36em;letter-spacing:.04em;margin-top:.35em}
+.hero p.lede{max-width:60ch;font-size:clamp(17px,2vw,20px);margin:0}
+.ctas{display:flex;gap:12px;flex-wrap:wrap}
+.btn{font-family:var(--mono);font-size:13px;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;padding:12px 18px;border:1px solid var(--line);border-radius:2px;background:var(--panel);color:var(--fg);cursor:pointer}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--clip-ink)}
+.btn:hover{border-color:var(--accent)}
+
+/* numbers */
+.stats{border-block:1px solid var(--line)}
+.stats .wrap{display:grid;grid-template-columns:repeat(4,1fr)}
+.stat{padding:28px 20px 28px 0;display:grid;gap:6px;align-content:start}
+.stat + .stat{padding-left:20px;border-left:1px solid var(--line)}
+.stat b{font-family:var(--display);font-weight:800;font-size:clamp(36px,5vw,56px);line-height:1;font-variant-numeric:tabular-nums}
+.stat small{font-size:14px;color:var(--muted);line-height:1.45}
+@media (max-width:760px){
+  .stats .wrap{grid-template-columns:1fr 1fr}
+  .stat:nth-child(3){padding-left:0;border-left:0}
+  .stat:nth-child(n+3){border-top:1px solid var(--line)}
+}
+
+/* section heads */
+section{scroll-margin-top:16px}
+.sec .wrap{padding-block:72px 24px}
+.sec-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:28px}
+.sec-head h2{font-size:clamp(40px,6vw,64px);font-weight:800;text-transform:uppercase}
+
+/* timeline */
+.tl-scroll{overflow-x:auto;border:1px solid var(--line);background:var(--panel);border-radius:3px}
+.tl{min-width:760px;position:relative;padding:0 0 12px}
+.ruler,.track{display:grid;grid-template-columns:56px 1fr}
+.ruler{border-bottom:1px solid var(--line);height:34px}
+.lane{position:relative}
+.ticks{position:relative;height:100%}
+.tick{position:absolute;top:0;bottom:0;border-left:1px solid var(--line);padding:8px 0 0 6px;font-family:var(--mono);font-size:11px;color:var(--muted);font-variant-numeric:tabular-nums}
+.tick.minor{border-left-style:dotted}
+.tname{font-family:var(--mono);font-size:11px;color:var(--muted);display:flex;align-items:center;justify-content:center;border-right:1px solid var(--line)}
+.track{height:64px;border-bottom:1px solid var(--line)}
+.track.v2{height:44px}
+.track.a1{height:40px;border-bottom:0}
+.clip{position:absolute;top:8px;bottom:8px;border-radius:3px;color:var(--clip-ink);text-decoration:none;padding:6px 8px;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;transition:filter .15s}
+.clip:hover{filter:brightness(1.1)}
+.clip strong{font-family:var(--display);font-weight:800;font-size:18px;line-height:1;text-transform:uppercase;white-space:nowrap}
+.clip em{font-style:normal;font-family:var(--mono);font-size:10px;white-space:nowrap;opacity:.85}
+.clip.thin{top:7px;bottom:7px;padding:4px 8px;justify-content:center}
+.clip.thin strong{font-size:14px}
+.act{background:var(--c-act)} .tt{background:var(--c-tt)} .bz{background:var(--c-bz)} .snk{background:var(--c-snk)}
+.wave{position:absolute;top:8px;bottom:8px;border-radius:3px;opacity:.35;
+  background:repeating-linear-gradient(90deg,currentColor 0 2px,transparent 2px 5px);
+  -webkit-mask:linear-gradient(0deg,transparent 0,#000 20%,#000 80%,transparent 100%);mask:linear-gradient(0deg,transparent 0,#000 20%,#000 80%,transparent 100%)}
+.playhead{position:absolute;top:0;bottom:0;width:2px;background:var(--accent);pointer-events:none}
+.playhead::before{content:"";position:absolute;top:0;left:-6px;border:7px solid transparent;border-top-color:var(--accent)}
+.tl-note{margin-top:10px}
+
+/* clip inspector / roles */
+.roles{display:grid;gap:0}
+.role{display:grid;grid-template-columns:220px minmax(0,1fr);gap:32px;padding-block:40px;border-top:1px solid var(--line);scroll-margin-top:16px}
+.role:last-child{border-bottom:1px solid var(--line)}
+.meta{display:grid;gap:10px;align-content:start}
+.swatch{width:40px;height:6px;border-radius:2px}
+.tc{font-family:var(--mono);font-size:13px;font-variant-numeric:tabular-nums;color:var(--muted);display:grid;gap:2px}
+.tc span b{color:var(--fg);font-weight:500}
+.role h3{font-size:clamp(30px,4vw,44px);font-weight:800;text-transform:uppercase}
+.role .title{font-weight:600;margin:6px 0 16px;color:var(--muted)}
+.role ul{margin:0;padding:0;list-style:none;display:grid;gap:12px;max-width:68ch}
+.role li{padding-left:22px;position:relative}
+.role li::before{content:"";position:absolute;left:0;top:.72em;width:10px;height:2px;background:var(--line)}
+.role li strong{font-weight:600}
+@media (max-width:760px){.role{grid-template-columns:1fr;gap:16px}}
+
+/* clients + team */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+@media (max-width:860px){.split{grid-template-columns:1fr}}
+.names{display:flex;flex-wrap:wrap;gap:8px 10px}
+.name{font-family:var(--display);font-weight:800;font-size:clamp(26px,3.4vw,36px);text-transform:uppercase;line-height:1.05}
+.name:not(:last-child)::after{content:"/";color:var(--line);margin-left:10px;font-weight:600}
+.sub{margin:28px 0 12px}
+.ips{display:flex;flex-wrap:wrap;gap:8px}
+.ip{font-family:var(--mono);font-size:12px;letter-spacing:.04em;text-transform:uppercase;border:1px solid var(--line);padding:6px 10px;border-radius:2px}
+.bins{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:4px}
+.bin{border:1px solid var(--line);background:var(--panel);border-radius:3px;padding:14px 12px;display:grid;gap:4px}
+.bin b{font-family:var(--display);font-weight:800;font-size:22px;text-transform:uppercase;line-height:1}
+@media (max-width:520px){.bins{grid-template-columns:1fr 1fr}}
+.team-line{font-family:var(--display);font-weight:800;font-size:clamp(28px,3.4vw,38px);text-transform:uppercase;line-height:1.05;margin:0 0 16px}
+.team-line span{color:var(--muted)}
+
+/* skills / edu */
+.toolkit{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+@media (max-width:760px){.toolkit{grid-template-columns:1fr}}
+.toolkit h3{font-size:24px;font-weight:800;text-transform:uppercase;margin-bottom:10px}
+.toolkit p{margin:0;color:var(--muted);max-width:40ch}
+
+/* contact */
+.contact .wrap{padding-block:88px 72px;display:grid;gap:24px}
+.contact h2{font-size:clamp(56px,11vw,140px);font-weight:900;text-transform:uppercase}
+.mail{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.mail code{font-family:var(--mono);font-size:clamp(16px,2.4vw,22px);user-select:all;word-break:break-all}
+footer .wrap{border-top:1px solid var(--line);padding-block:20px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+
+@media (prefers-reduced-motion: no-preference){
+  .playhead{animation:sweep 1.6s cubic-bezier(.2,.7,.2,1) both}
+  @keyframes sweep{from{left:0}}
+}
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap">
+    <span class="mono rec"><i></i>Beau Hudak — Creative Director</span>
+    <nav class="mono" aria-label="Sections">
+      <a href="#timeline">Timeline</a><a href="#work">Work</a><a href="#clients">Clients</a><a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <span class="mono">Rochester, MN · Open to remote</span>
+      <h1>Beau Hudak<span>Creative Director · Games</span></h1>
+      <p class="lede">Ten-plus years making games look and feel like events, from in-game content on Overwatch to founding a games creative studio. I've directed distributed teams across live-service and licensed IP including Overwatch, Fortnite, Roblox, Minecraft, and EA FC.</p>
+      <div class="ctas">
+        <a class="btn primary" href="https://snack.video" target="_blank" rel="noopener">Watch the reel</a>
+        <a class="btn" href="#contact">Get in touch</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="stats" aria-label="Highlights">
+    <div class="wrap">
+      <div class="stat"><b>$250K→$3M</b><small>Snack Creative revenue growth in two years</small></div>
+      <div class="stat"><b>1.12M</b><small>Overwatch League postseason viewers, up 18% year over year</small></div>
+      <div class="stat"><b>12,000</b><small>Seats sold out at the Wells Fargo Center for the 2019 finals</small></div>
+      <div class="stat"><b>1.3M</b><small>Views on the Nintendo spot "Minecraft – What Will You Build Next?"</small></div>
+    </div>
+  </section>
+
+  <section class="sec" id="timeline">
+    <div class="wrap">
+      <div class="sec-head"><h2>The Sequence</h2><span class="mono">2015 → Now</span></div>
+      <div class="tl-scroll" role="region" aria-label="Career timeline" tabindex="0">
+        <div class="tl">
+          <div class="ruler"><div class="tname">TC</div><div class="ticks" id="ticks"></div></div>
+          <div class="track v2"><div class="tname">V2</div><div class="lane">
+            <a class="clip thin tt" href="#telltale" style="left:12.5%;width:4.17%" title="Batman Unmasked"><strong>Batman</strong></a>
+            <a class="clip thin bz" href="#blizzard" style="left:33.33%;width:8.33%" title="Overwatch League 2019 postseason"><strong>OWL '19</strong></a>
+            <a class="clip thin snk" href="#snack" style="left:50%;width:16.67%" title="Agency grows from $250K to $3M"><strong>$250K → $3M</strong></a>
+          </div></div>
+          <div class="track"><div class="tname">V1</div><div class="lane">
+            <a class="clip act" href="#activision" style="left:0;width:8.33%"><strong>Activision</strong><em>15–16</em></a>
+            <a class="clip tt" href="#telltale" style="left:8.33%;width:8.33%"><strong>Telltale</strong><em>16–17</em></a>
+            <a class="clip bz" href="#blizzard" style="left:16.67%;width:25%"><strong>Blizzard</strong><em>Overwatch · 17–20</em></a>
+            <a class="clip snk" href="#snack" style="left:50%;width:48.6%"><strong>Snack Creative</strong><em>Co-founder · CCO · 2021–now</em></a>
+          </div></div>
+          <div class="track a1"><div class="tname">A1</div><div class="lane" style="color:var(--muted)">
+            <div class="wave" style="left:0;width:41.67%"></div>
+            <div class="wave" style="left:50%;width:48.6%"></div>
+          </div></div>
+          <div class="playhead" id="playhead" style="left:calc(56px + (100% - 56px) * .986)" aria-hidden="true"></div>
+        </div>
+      </div>
+      <p class="mono tl-note">Each clip is to scale. Select one to jump to the role.</p>
+    </div>
+  </section>
+
+  <section class="sec" id="work">
+    <div class="wrap">
+      <div class="sec-head"><h2>Clip Inspector</h2><span class="mono">4 roles · 11 years</span></div>
+      <div class="roles">
+
+        <article class="role" id="snack">
+          <div class="meta">
+            <div class="swatch snk"></div>
+            <div class="tc"><span>IN <b>2021</b></span><span>OUT <b>Present</b></span></div>
+            <span class="mono">Games marketing agency</span>
+          </div>
+          <div>
+            <h3>Snack Creative</h3>
+            <p class="title">Chief Creative Officer &amp; Co-founder</p>
+            <ul>
+              <li>Built a multimillion-dollar marketing agency for the games industry, growing revenue from <strong>$250,000 to $3 million in two years</strong>.</li>
+              <li>Built and led <strong>10 full-time staff and 13 contractors</strong> across four divisions: Video, Motion Graphics, Design, and Capture.</li>
+              <li>Concepted, executed, and delivered campaigns for Nintendo, Blizzard, EA, Square Enix, SEGA, Scopely, and Roblox.</li>
+              <li>Directed all of the company's creative, including live-action spots for Nintendo with millions of views. "Minecraft – What Will You Build Next?" alone has <strong>1.3M</strong>.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="role" id="blizzard">
+          <div class="meta">
+            <div class="swatch bz"></div>
+            <div class="tc"><span>IN <b>2017</b></span><span>OUT <b>2020</b></span></div>
+            <span class="mono">Overwatch</span>
+          </div>
+          <div>
+            <h3>Blizzard Entertainment</h3>
+            <p class="title">Senior Motion Graphics Designer</p>
+            <ul>
+              <li>Creative director of the <strong>2019 Overwatch League postseason campaign</strong>: a sold-out crowd of 12,000 at the Wells Fargo Center and 1.12M viewers, up 18% from the year before.</li>
+              <li>Worked directly with senior leadership on the Overwatch development team to create and review visual assets for in-game content.</li>
+              <li>Designed and built scenes in Overwatch's proprietary tool, then edited them into cohesive, cinematic assets.</li>
+              <li>Collaborated with Overwatch writers on copy and dialogue, environment artists on lighting, and animators on final animation.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="role" id="telltale">
+          <div class="meta">
+            <div class="swatch tt"></div>
+            <div class="tc"><span>IN <b>2016</b></span><span>OUT <b>2017</b></span></div>
+            <span class="mono">Narrative games</span>
+          </div>
+          <div>
+            <h3>Telltale Games</h3>
+            <p class="title">Video Editor</p>
+            <ul>
+              <li>Captured, edited, and finished cinematic narrative trailers for big-budget campaigns, including <strong>Monday Night Football</strong> spots.</li>
+              <li>Created a new cinematic language for trailers and worked with the development team to bring it into a primetime television spot.</li>
+              <li>Produced, shot, and edited the talk show <strong>Batman Unmasked</strong>.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="role" id="activision">
+          <div class="meta">
+            <div class="swatch act"></div>
+            <div class="tc"><span>IN <b>2015</b></span><span>OUT <b>2016</b></span></div>
+            <span class="mono">Publisher</span>
+          </div>
+          <div>
+            <h3>Activision</h3>
+            <p class="title">Multimedia Editor</p>
+            <ul>
+              <li>Wrote, edited, and directed trailers for social media and brand campaigns.</li>
+              <li>Cut agency scripts into brand-appropriate trailers.</li>
+              <li>Created and pitched game concepts for the studio to produce.</li>
+            </ul>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="clients">
+    <div class="wrap">
+      <div class="sec-head"><h2>Who &amp; How</h2><span class="mono">Clients · Team</span></div>
+      <div class="split">
+        <div>
+          <span class="mono">Clients</span>
+          <div class="names" style="margin-top:12px">
+            <span class="name">Nintendo</span><span class="name">Blizzard</span><span class="name">EA</span><span class="name">Square Enix</span><span class="name">SEGA</span><span class="name">Scopely</span><span class="name">Roblox</span>
+          </div>
+          <p class="mono sub">Titles</p>
+          <div class="ips">
+            <span class="ip">Overwatch</span><span class="ip">Fortnite</span><span class="ip">Roblox</span><span class="ip">Minecraft</span><span class="ip">EA FC</span>
+          </div>
+        </div>
+        <div>
+          <span class="mono">The team I built at Snack</span>
+          <p class="team-line" style="margin-top:12px">10 full-time <span>+</span> 13 contractors</p>
+          <div class="bins">
+            <div class="bin"><span class="mono">Bin 1</span><b>Video</b></div>
+            <div class="bin"><span class="mono">Bin 2</span><b>Motion</b></div>
+            <div class="bin"><span class="mono">Bin 3</span><b>Design</b></div>
+            <div class="bin"><span class="mono">Bin 4</span><b>Capture</b></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <div class="sec-head"><h2>Toolkit</h2><span class="mono">Skills · Education</span></div>
+      <div class="toolkit">
+        <div><h3>Direction</h3><p>Creative direction, team leadership, visual storytelling, campaign strategy.</p></div>
+        <div><h3>Tools</h3><p>Unreal Engine, Unity, Adobe Premiere, After Effects, Photoshop, Claude, ChatGPT.</p></div>
+        <div><h3>Education</h3><p>B.A. in English, Film Studies concentration. St. Olaf College, 2013.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <span class="mono">Next shot</span>
+      <h2>Let's make something.</h2>
+      <div class="mail">
+        <code id="email">beau.hudak@gmail.com</code>
+        <button class="btn" id="copy" type="button">Copy email</button>
+      </div>
+      <div class="ctas">
+        <a class="btn primary" href="https://snack.video" target="_blank" rel="noopener">Reel: snack.video</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap mono"><span>© 2026 Beau Hudak</span><span>Rochester, MN</span></div>
+</footer>
+
+<script>
+(function(){
+  var t=document.getElementById('ticks'), y0=2015, span=12;
+  for(var y=y0;y<y0+span;y++){
+    var d=document.createElement('div');
+    d.className='tick'+(y%5===0?'':' minor');
+    d.style.left=((y-y0)/span*100)+'%';
+    d.textContent=String(y).slice(2)+':00:00';
+    t.appendChild(d);
+  }
+  var b=document.getElementById('copy');
+  b.addEventListener('click',function(){
+    var txt=document.getElementById('email').textContent;
+    var done=function(){b.textContent='Copied';setTimeout(function(){b.textContent='Copy email'},1600)};
+    var fallback=function(){var r=document.createRange();r.selectNodeContents(document.getElementById('email'));var s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent='Selected, press copy'};
+    try{navigator.clipboard.writeText(txt).then(done,fallback)}catch(e){fallback()}
+  });
+})();
+</script>
+</body>
+</html>
